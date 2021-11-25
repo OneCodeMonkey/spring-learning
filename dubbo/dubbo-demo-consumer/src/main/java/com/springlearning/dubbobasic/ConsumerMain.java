@@ -9,7 +9,16 @@ public class ConsumerMain {
         DemoService demoService = null;
         ApplicationContext context = new ClassPathXmlApplicationContext("classpath:META-INF/spring/application.xml");
         demoService = context.getBean(DemoService.class);
-        // 调用服务
-        System.out.println(demoService.sayHello("ABCD123456"));
+        int count = 0;
+        while (true) {
+            count++;
+            // 调用服务
+            System.out.println(demoService.sayHello("ABCD123456" + " - " + count));
+            try {
+                Thread.sleep(200);
+            } catch (Exception e) {
+                //
+            }
+        }
     }
 }
