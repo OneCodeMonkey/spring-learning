@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans        http://www.springframework.org/schema/beans/spring-beans.xsd        http://code.alibabatech.com/schema/dubbo        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+    <!-- 服务名称-->
+    <dubbo:application name="dubbo-consumer"/>
+    <!--不需要注册到服务注册中心-->
+    <!-- 通过url直接调用-->
+    <dubbo:reference id="demoService"
+                     interface="com.springlearning.dubbobasic.service.DemoService"
+                     url="dubbo://127.0.0.1:20880/com.springlearning.dubbobasic.service.DemoService"/>
+</beans>
