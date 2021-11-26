@@ -39,6 +39,14 @@
             <artifactId>dubbo</artifactId>
             <version>3.0.4</version>
         </dependency>
+
+<!--        使用zookeeper作为注册中心时-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.dubbo</groupId>-->
+<!--            <artifactId>dubbo-dependencies-zookeeper</artifactId>-->
+<!--            <version>3.0.4</version>-->
+<!--            <type>pom</type>-->
+<!--        </dependency>-->
     </dependencies>
 
     <build>
