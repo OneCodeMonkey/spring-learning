@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: spring-full-features
+  profiles:
+    active: dev
