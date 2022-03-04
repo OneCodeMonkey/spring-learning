@@ -21,6 +21,11 @@ public class LuaController {
     public void testLuaInvokeJavaFunc () {
         luaDemo.loadJavaFuncInLua();
     }
+
+    @GetMapping("/testGetPath")
+    public void testGetPath() {
+        luaDemo.testGetPath();
+    }
 }
 
 //class Solution {

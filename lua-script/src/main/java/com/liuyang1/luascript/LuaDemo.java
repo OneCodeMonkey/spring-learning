@@ -90,5 +90,26 @@ public class LuaDemo {
         LuaValue luaRawResult = chunk.call();
         System.out.println(luaRawResult);
     }
+
+    public void testGetPath() {
+        Globals globals = JsePlatform.standardGlobals();
+
+        // register java function to lua
+        globals.set("carPropertyGet", new LuaTable());
+        globals.get("carPropertyGet").set("GetAirConditionerProperty", new getAirTemperature());
+        globals.get("carPropertyGet").set("LuaGetNluResult", new getNluResult());
+
+        globals.get("carPropertyGet").set("TestReturnTrue", new testReturnTrue());
+        globals.get("carPropertyGet").set("TestReturnFalse", new testReturnFalse());
+        globals.get("carPropertyGet").set("TestReturnNull", new testReturnNull());
+
+        String path = this.getClass().getResource("/lua-scripts/test.lua").getPath();
+        log.info("file path: " + path);
+
+        LuaValue chunk = globals.loadfile(path);
+
+        LuaValue luaRawResult = chunk.call();
+        System.out.println(luaRawResult);
+    }
 }
 
