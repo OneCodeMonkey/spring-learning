@@ -16,4 +16,19 @@ public class LuaController {
     public void test() {
         luaDemo.execute();
     }
+
+    @GetMapping("/testLuaInvokeJavaFunc")
+    public void testLuaInvokeJavaFunc () {
+        luaDemo.loadJavaFuncInLua();
+    }
 }
+
+//class Solution {
+//    public int shortestSubarray(int[] nums, int k) {
+//        int leftPos = 0, ret = 0, curSum = 0;
+//        for (int i = 0; i < nums.length; i++) {
+//            curSum += nums[i];
+//
+//        }
+//    }
+//}

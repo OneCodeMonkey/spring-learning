@@ -1,1 +1,7 @@
-print 'hello world123!'
+print("\n\n---")
+print(carPropertyGet.TestReturnTrue())
+print(type(carPropertyGet.TestReturnTrue()))
+print(carPropertyGet.TestReturnFalse())
+print(carPropertyGet.TestReturnNull())
+print("---")
+print(type(carPropertyGet.TestReturnNull()))
