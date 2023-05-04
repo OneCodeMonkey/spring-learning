@@ -1,4 +1,4 @@
-package com.liuyang1.common.utils;
+package com.liuyang1.impl.utils;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,9 +20,7 @@ public class RedisKeyUtils {
     // 部署环境
     private final static String ENV_DEV = "dev";
     private final static String ENV_QA = "qa";
-    private final static String ENV_TEST = "test";
-    private final static String ENV_SIM = "sim";
-    private final static String ENV_PRE = "pre";
+    //    private final static String ENV_PRE = "pre";
     private final static String ENV_PROD = "prod";
     // 缓存有过期时间或永久
     // Cache:有过期时间
@@ -37,7 +35,7 @@ public class RedisKeyUtils {
     public final static String DATA_TYPE_ZSET = "zset";
     public final static String DATA_TYPE_GEO = "geo";
 
-    private final List<String> envList = Arrays.asList(ENV_DEV, ENV_QA, ENV_TEST, ENV_SIM, ENV_PRE, ENV_PROD);
+    private final List<String> envList = Arrays.asList(ENV_DEV, ENV_QA, ENV_PROD);
     private final List<String> typeList = Arrays.asList(TYPE_CACHE, TYPE_STORAGE);
     private final List<String> dataTypeList = Arrays.asList(DATA_TYPE_STRING, DATA_TYPE_HASH, DATA_TYPE_LIST,
             DATA_TYPE_SET, DATA_TYPE_ZSET, DATA_TYPE_GEO);
@@ -71,20 +69,11 @@ public class RedisKeyUtils {
     }
 
     // 填写自定义的 key 前缀，获取key的方法等。
-    private final static String LUBAN_RESULT = "luban_result#%s";
-    private final static String NLU_RESULT = "nlu_result#%s";
     private final static String APOLLO_CONFIG = "apollo_config#%s";
-
-    public static String getLubanResultKey(String query) {
-        return String.format(LUBAN_RESULT, query);
-    }
-
-    public static String getNluResultKey(String query) {
-        return String.format(NLU_RESULT, query);
-    }
 
     /**
      * Apollo配置缓存key前缀
+     *
      * @param suffix
      * @return
      */

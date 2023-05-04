@@ -1,4 +1,4 @@
-package com.liuyang1.common.utils;
+package com.liuyang1.impl.utils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.net.InetAddress;
