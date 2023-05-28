@@ -1,0 +1,43 @@
+import com.liuyang1.droolsusage.request.OrderRequest;
+import com.liuyang1.droolsusage.enums.CustomerType;
+global com.liuyang1.droolsusage.request.OrderDiscount orderDiscount;
+
+dialect "mvel"
+
+// 规则1： 根据年龄判断
+rule "Age based discount"
+    when
+        OrderRequest(age < 20 || age > 50)
+    then
+        System.out.println("==========Adding 10% discount for kids and older=============");
+        orderDiscount.setDiscount(orderDiscount.getDiscount() + 10);
+end
+
+// 规则2： 根据客户类型的规则
+rule "Customer type based discount - Loyal customer"
+    when
+        // 当客户类型是LOYAL
+        OrderRequest(customerType.getValue == "LOYAL")
+    then
+        // 则增加5%的折扣
+        System.out.println("==========Adding 5% discount for LOYAL customer=============");
+        orderDiscount.setDiscount(orderDiscount.getDiscount() + 5);
+end
+
+// 规则3： 根据客户类型的规则
+rule "Customer type based discount - others"
+    when
+        OrderRequest(customerType.getValue != "LOYAL")
+    then
+        System.out.println("==========Adding 3% discount for NEW or DISSATISFIED customer=============");
+        orderDiscount.setDiscount(orderDiscount.getDiscount() + 3);
+end
+
+// 规则4： 根据订单金额的规则
+rule "Amount based discount"
+    when
+        OrderRequest(amount > 1000)
+    then
+        System.out.println("==========Adding 5% discount for amount more than 1000$=============");
+        orderDiscount.setDiscount(orderDiscount.getDiscount() + 5);
+end
