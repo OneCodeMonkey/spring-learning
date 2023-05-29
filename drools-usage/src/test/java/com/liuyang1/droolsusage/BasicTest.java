@@ -1,6 +1,5 @@
 package com.liuyang1.droolsusage;
 
-
 import com.liuyang1.droolsusage.enums.CustomerType;
 import com.liuyang1.droolsusage.request.OrderDiscount;
 import com.liuyang1.droolsusage.request.OrderRequest;
@@ -22,6 +21,7 @@ public class BasicTest {
     @Test
     public void testDroolsBasic() {
         OrderDiscount orderDiscount = new OrderDiscount();
+        System.out.println("kieContainer: " + (kieContainer == null ? "YES" : "NO"));
 
         //
         OrderRequest orderRequest = new OrderRequest();
@@ -58,7 +58,7 @@ public class BasicTest {
         Assertions.assertEquals(orderDiscount.getDiscount(), 18);
     }
 
-    private void calculate(OrderRequest orderRequest, OrderDiscount orderDiscount) {
+    public void calculate(OrderRequest orderRequest, OrderDiscount orderDiscount) {
         // reset
         orderDiscount.setDiscount(0);
 
