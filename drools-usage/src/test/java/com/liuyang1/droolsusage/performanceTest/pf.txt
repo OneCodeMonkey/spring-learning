@@ -1,0 +1,7 @@
+times: 1000, avg: 0.411000, max: 145, min: 0, total: 411
+times: 10000, avg: 0.080900, max: 158, min: 0, total: 809
+times: 100000, avg: 0.023470, max: 152, min: 0, total: 2347
+times: 200000, avg: 0.014465, max: 155, min: 0, total: 2893
+times: 500000, avg: 0.009022, max: 147, min: 0, total: 4511
+times: 1000000, avg: 0.007462, max: 276, min: 0, total: 7462
+times: 10000000, avg: 0.004652, max: 173, min: 0, total: 46523
