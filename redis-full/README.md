@@ -2,7 +2,7 @@
 
 ## 1.1 Basic dataType operations
 ## ✅String
-## List
+## ✅List
 ## Set
 ## Sorted Set
 ## ✅Hash

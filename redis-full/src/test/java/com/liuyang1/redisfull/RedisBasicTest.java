@@ -13,9 +13,9 @@ import java.time.Duration;
 
 @Slf4j
 public class RedisBasicTest extends RedisFullApplicationTests {
-    private final static String redisIp = "59.110.138.74";
+    private final static String redisIp = "127.0.0.1";
     private final static int redisPort = 6378;
-    private final static String redisPassword = "jhkdjhkjdhsIUTYURTU_YWzsZ2";
+    private final static String redisPassword = "password1";
 
     public static JedisPool jedisPool;
 
