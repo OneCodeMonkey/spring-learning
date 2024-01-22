@@ -120,6 +120,11 @@ public class StringOperationTest extends RedisBasicTest {
         double setResult12 = jedis.incrByFloat("key1", -0.01);
         Assertions.assertEquals(1, setResult12);
         Assertions.assertEquals("1", jedis.get("key1"));
+
+        // 15. setnx
+        String setResult13 = jedis.setex("key2", 10, "1");
+        Assertions.assertEquals("OK", setResult13);
+        Assertions.assertTrue(10 - jedis.ttl("key2") < 3);
     }
 
     @AfterAll
