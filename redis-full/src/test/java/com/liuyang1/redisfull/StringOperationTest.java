@@ -14,8 +14,9 @@ public class StringOperationTest extends RedisBasicTest {
     public void testStringOperations() {
         // 1.set
         Jedis jedis = jedisPool.getResource();
-        jedis.set("key1", "value1");
+        String setResult0 = jedis.set("key1", "value1");
         String result = jedis.get("key1");
+        Assertions.assertEquals("OK", setResult0);
         Assertions.assertNotNull(result);
         Assertions.assertEquals(result, "value1");
 
