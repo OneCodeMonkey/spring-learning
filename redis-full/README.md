@@ -3,8 +3,8 @@
 ## 1.1 Basic dataType operations
 ## ✅String
 ## ✅List
-## Set
-## Sorted Set
+## ✅Set
+## ✅Sorted Set
 ## ✅Hash
 ## ✅Geo
 ## ✅HyperLogLog
