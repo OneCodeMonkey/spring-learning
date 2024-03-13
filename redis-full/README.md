@@ -12,3 +12,6 @@
 
 ## 1.2 使用细节
 ### 1.2.1 定义 redis 多数据源
+
+###### ref articles
+https://mp.weixin.qq.com/s/D1S4cN5B-TXiufTDOVaoiQ

@@ -47,6 +47,16 @@ public class ListOperationTest extends RedisBasicTest {
         Assertions.assertEquals(3, listVals.size());
         Assertions.assertEquals("listElem3", listVals.get(0));
         Assertions.assertEquals("listElem1", listVals.get(2));
+        // lrange 的 start，end 两个起止点都包含在内
+        List<String> listVals2 = jedis.lrange("key1", 0, 2);
+        Assertions.assertEquals(3, listVals2.size());
+        Assertions.assertEquals("listElem3", listVals2.get(0));
+        Assertions.assertEquals("listElem1", listVals2.get(2));
+        // lrange 当 start > end 时并不报错，只是返回空值
+        List<String> listVals3 = jedis.lrange("key1", 2, 1);
+        Assertions.assertNotEquals(null, listVals3);
+        Assertions.assertTrue(listVals3.isEmpty());
+
 
         // 6.lrem：从列表中移除指定数量的 目标元素
         jedis.del("key1");
