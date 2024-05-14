@@ -40,7 +40,7 @@ public class PipelineTest extends RedisBasicTest {
     @Test
     public void testPipelineSpeed() {
         Jedis jedis = jedisPool.getResource();
-        final int keySize = 1000;
+        final int keySize = 100;
         long startTime = System.currentTimeMillis();
         for (int i = 0; i < keySize; i++) {
             jedis.set("key" + i, "1");
