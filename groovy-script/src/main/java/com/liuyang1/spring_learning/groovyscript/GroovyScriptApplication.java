@@ -30,6 +30,7 @@ public class GroovyScriptApplication {
     }
 
     public static void basicGroovyScriptUsage() {
+        // todo- file 模式下，如何bind 变量？
         String filePath = "src/main/resources/scripts/Hello.groovy";
         File groovyFile = new File(filePath);
         GroovyClassLoader groovyClassLoader = new GroovyClassLoader();
