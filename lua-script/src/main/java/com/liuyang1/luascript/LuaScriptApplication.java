@@ -7,12 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 @SpringBootApplication
 public class LuaScriptApplication {
@@ -27,6 +22,14 @@ public class LuaScriptApplication {
         SpringApplication.run(LuaScriptApplication.class, args);
     }
 
+    @Bean
+    public void testFunc() {
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        pq.offer(1);
+        pq.offer(2);
+        pq.offer(3);
+        System.out.println(pq.poll());
+    }
 }
 
 //class ListNode {
