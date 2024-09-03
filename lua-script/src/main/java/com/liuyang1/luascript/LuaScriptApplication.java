@@ -7,7 +7,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.LinkedHashSet;
+import java.util.PriorityQueue;
+import java.util.Random;
+import java.util.Stack;
 
 @SpringBootApplication
 public class LuaScriptApplication {
@@ -67,4 +71,23 @@ public class LuaScriptApplication {
 //        this.right = right;
 //    }
 //}
+
+//class ListNode {
+//    int val;
+//    ListNode next;
+//
+//    ListNode() {
+//    }
+//
+//    ListNode(int val) {
+//        this.val = val;
+//    }
+//
+//    ListNode(int val, ListNode next) {
+//        this.val = val;
+//        this.next = next;
+//    }
+//}
+
+
 
