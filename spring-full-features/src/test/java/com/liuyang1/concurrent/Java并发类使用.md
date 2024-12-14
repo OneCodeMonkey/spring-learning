@@ -1,6 +1,6 @@
 ## Java 并发笔记
 
-##### 1.实现两个线程交替打印 0～100的数值：
+##### 1.实现两个线程交替打印 0～100的数值：(2024-12-14)
 参考： JavaConcurrentProgramming@testAlternativelyPrint1()
 JavaConcurrentProgramming@testAlternativelyPrint2()
 两种方式：
