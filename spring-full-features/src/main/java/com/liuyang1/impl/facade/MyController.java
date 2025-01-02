@@ -18,9 +18,13 @@ public class MyController {
 
     @AutoLog
     @GetMapping("/myAction")
-    public String testAction() {
+    public String testAction() throws Exception {
         System.out.println("request API /module/my/myAction!");
         log.info("request API /module/my/myAction!");
+
+        // 此处验证，即使抛出异常，切面的 after() 方法仍能执行到
+//        throw new Exception("some error");
+
         return String.format("hello, {}, your id is {}", "aaa", 111);
     }
 
