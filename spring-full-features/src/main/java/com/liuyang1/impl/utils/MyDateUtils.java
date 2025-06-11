@@ -61,4 +61,22 @@ public class MyDateUtils {
 
         return Date.from(someDaysAgo.atZone(ZoneId.systemDefault()).toInstant());
     }
+
+    /**
+     * unix timestamp 转标准日期格式
+     *
+     * @param timestamp
+     * @return
+     */
+    public static String getFormattedDateFromTimestamp(long timestamp) {
+        try {
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            Date date = new Date(timestamp);
+            return formatter.format(date);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return "";
+    }
 }
