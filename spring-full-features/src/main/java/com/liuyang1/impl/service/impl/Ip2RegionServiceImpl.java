@@ -28,7 +28,7 @@ public class Ip2RegionServiceImpl implements Ip2RegionService {
     public void init() throws IOException {
         // 创建 searcher 对象
         // 最好把 ip2region.xdb 拷贝到 部署路径的一个文件夹下，通过绝对路径读取，或加载到内存中查询，提高查询速度
-        String dbPath = "{directory_path}/ip2region.xdb";
+        String dbPath = "src/main/resources/static/xdb/ip2region.xdb";
         log.info("dbPath: {}", dbPath);
         try {
             searcher = Searcher.newWithFileOnly(dbPath);
