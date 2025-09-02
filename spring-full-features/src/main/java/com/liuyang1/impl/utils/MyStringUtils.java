@@ -12,7 +12,7 @@ public class MyStringUtils {
      */
     public static String urlencode(String param) {
         try {
-            return URLEncoder.encode(param, StandardCharsets.UTF_8.toString());
+            return URLEncoder.encode(param, StandardCharsets.UTF_8.name());
         } catch (Exception e) {
             e.printStackTrace();
         }
