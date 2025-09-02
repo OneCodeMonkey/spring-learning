@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class GsonUtils {
     //    static Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
-    static Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
+    public static Gson gson = new GsonBuilder().create();
 
     public static String toJson(Object object) {
         return gson.toJson(object);
