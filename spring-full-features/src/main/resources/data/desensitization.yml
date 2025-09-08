@@ -1,0 +1,15 @@
+Y3800:
+  phone:
+    rule: "(\\d{3})\\d{4}(\\d{4})"
+    format: "$1****$2"
+  idCard:
+    rule: "(?<=\\w{6})\\w(?=\\w{4})"
+    format: "*"
+Y3801:
+  idCard:
+    rule: "(?<=\\w{3})\\w(?=\\w{4})"
+    format: "+"
+  list:
+    phone:
+      rule: "(\\d{3})\\d{4}(\\d{4})"
+      format: "$1++++$2"
