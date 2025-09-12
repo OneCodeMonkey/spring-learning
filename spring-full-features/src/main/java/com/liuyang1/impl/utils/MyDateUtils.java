@@ -123,7 +123,7 @@ public class MyDateUtils {
             if (days >= 0) {
                 newDate = date.plusDays(days);
             } else {
-                newDate = date.minusDays(days);
+                newDate = date.minusDays(-days);
             }
 
             return newDate.format(formatter);
