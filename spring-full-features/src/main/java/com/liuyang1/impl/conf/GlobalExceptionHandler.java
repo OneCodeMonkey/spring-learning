@@ -2,16 +2,16 @@ package com.liuyang1.impl.conf;
 
 import com.liuyang1.impl.response.BaseResponse;
 import com.liuyang1.impl.response.ErrorCode;
-import com.liuyang1.impl.utils.MD5Utils;
+import com.liuyang1.impl.utils.Md5Utils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.annotation.Order;
-import org.springframework.dao.DuplicateKeyException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.yaml.snakeyaml.constructor.DuplicateKeyException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +24,7 @@ import java.util.List;
 @Order(0)
 public class GlobalExceptionHandler {
 
-    String traceId = MD5Utils.getMD5Hash(String.valueOf(System.nanoTime()));
+    String traceId = Md5Utils.getMD5Str(String.valueOf(System.nanoTime()));
 
     /**
      * 默认 Exception 异常拦截
