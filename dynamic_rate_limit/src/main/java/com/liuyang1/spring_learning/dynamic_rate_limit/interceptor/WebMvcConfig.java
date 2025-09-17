@@ -13,11 +13,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
     @Autowired
-    private RateLimitInterceptor interceptor;
+    private TraceLogInterceptor traceLogInterceptor;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(interceptor);
+        registry.addInterceptor(traceLogInterceptor);
         WebMvcConfigurer.super.addInterceptors(registry);
     }
 }
