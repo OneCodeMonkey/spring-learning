@@ -1,6 +1,6 @@
 package com.liuyang1.impl.response;
 
-import com.liuyang1.impl.utils.MD5Utils;
+import com.liuyang1.impl.utils.Md5Utils;
 import lombok.Data;
 
 @Data
@@ -20,7 +20,7 @@ public class BaseResponse<T> {
     public BaseResponse() {
         this.errno = ErrorCode.SUCCESS.getCode();
         this.errmsg = ErrorCode.SUCCESS.getMessage();
-        this.traceId = MD5Utils.getMD5Hash(String.valueOf(System.nanoTime()));
+        this.traceId = Md5Utils.getMD5Str(String.valueOf(System.nanoTime()));
     }
 
     public static BaseResponse build() {
