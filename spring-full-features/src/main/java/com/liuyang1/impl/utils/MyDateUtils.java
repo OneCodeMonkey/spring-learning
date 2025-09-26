@@ -101,7 +101,7 @@ public class MyDateUtils {
         }
         String[] arr1 = date1.split("-"), arr2 = date2.split("-");
         int year1 = Integer.parseInt(arr1[0]), month1 = Integer.parseInt(arr1[1]), day1 = Integer.parseInt(arr1[2]);
-        int year2 = Integer.parseInt(arr1[0]), month2 = Integer.parseInt(arr1[1]), day2 = Integer.parseInt(arr1[2]);
+        int year2 = Integer.parseInt(arr2[0]), month2 = Integer.parseInt(arr2[1]), day2 = Integer.parseInt(arr2[2]);
         LocalDate date11 = LocalDate.of(year1, month1, day1);
         LocalDate date22 = LocalDate.of(year2, month2, day2);
 
