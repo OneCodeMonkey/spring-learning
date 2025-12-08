@@ -3,8 +3,10 @@ package com.liuyang1.impl.utils;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.YearMonth;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
@@ -132,5 +134,77 @@ public class MyDateUtils {
         }
 
         return "";
+    }
+
+    /**
+     * 获取同比：上个月的相同日期
+     *
+     * @param date
+     * @return
+     */
+    public static Date getTongbiDate(String date) {
+        return getDateFromFormattedDateStr(getTongbiDateStr(date), "yyyy-MM-dd");
+    }
+
+    /**
+     * 获取同比：上个年的相同月份+日期
+     *
+     * @param date
+     * @return
+     */
+    public static Date getHuanbiDate(String date) {
+        return getDateFromFormattedDateStr(getHuanbiDateStr(date), "yyyy-MM-dd");
+    }
+
+    /**
+     * 计算同比日期（上个月的同一天）
+     * 如果上个月没有这一天，则取上个月的最后一天
+     */
+    public static String getTongbiDateStr(String dateStr) {
+        try {
+            LocalDate date = LocalDate.parse(dateStr, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+
+            // 获取上个月的同一天
+            LocalDate lastMonthSameDay = date.minusMonths(1);
+
+            // 如果上个月的天数小于原日期天数，取上个月的最后一天
+            YearMonth lastYearMonth = YearMonth.from(lastMonthSameDay);
+            int lastMonthDays = lastYearMonth.lengthOfMonth();
+
+            if (date.getDayOfMonth() > lastMonthDays) {
+                return lastYearMonth.atEndOfMonth().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+            } else {
+                return lastMonthSameDay.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+            }
+
+        } catch (DateTimeParseException e) {
+            throw new IllegalArgumentException("日期格式错误，应为 yyyy-MM-dd: " + dateStr, e);
+        }
+    }
+
+    /**
+     * 计算环比日期（上一年同月的同一天）
+     * 如果上一年同月没有这一天，则取上一年同月的最后一天
+     */
+    public static String getHuanbiDateStr(String dateStr) {
+        try {
+            LocalDate date = LocalDate.parse(dateStr, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+
+            // 获取上一年同月的同一天
+            LocalDate lastYearSameMonthSameDay = date.minusYears(1);
+
+            // 如果上一年同月的天数小于原日期天数，取上一年同月的最后一天
+            YearMonth lastYearMonth = YearMonth.from(lastYearSameMonthSameDay);
+            int lastYearMonthDays = lastYearMonth.lengthOfMonth();
+
+            if (date.getDayOfMonth() > lastYearMonthDays) {
+                return lastYearMonth.atEndOfMonth().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+            } else {
+                return lastYearSameMonthSameDay.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+            }
+
+        } catch (DateTimeParseException e) {
+            throw new IllegalArgumentException("日期格式错误，应为 yyyy-MM-dd: " + dateStr, e);
+        }
     }
 }
