@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.params.SetParams;
+import redis.clients.jedis.params.ZIncrByParams;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
@@ -353,6 +354,24 @@ public class RedisProvider {
     public Long zAdd(String key, HashMap<String, Double> scoreMembers) {
         try (Jedis jedis = jedisPool.getResource()) {
             return jedis.zadd(key, scoreMembers);
+        } catch (Exception e) {
+            log.error("redis error", e);
+            return null;
+        }
+    }
+
+    public Double zIncrBy(String key, double increment, String member) {
+        try (Jedis jedis = jedisPool.getResource()) {
+            return jedis.zincrby(key, increment, member);
+        } catch (Exception e) {
+            log.error("redis error", e);
+            return null;
+        }
+    }
+
+    public Double zIncrBy(String key, double increment, String member, ZIncrByParams params) {
+        try (Jedis jedis = jedisPool.getResource()) {
+            return jedis.zincrby(key, increment, member, params);
         } catch (Exception e) {
             log.error("redis error", e);
             return null;
