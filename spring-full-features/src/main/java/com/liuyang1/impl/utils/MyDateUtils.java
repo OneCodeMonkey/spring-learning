@@ -16,6 +16,29 @@ import java.util.Date;
  * Desc: Date 工具类
  */
 public class MyDateUtils {
+    public static Date getDateFromFormattedDateStr(String dateStr) {
+        if (dateStr.length() != 19 || !dateStr.contains("-")) {
+            return null;
+        }
+
+        return getDateFromFormattedDateStr(dateStr, "yyyy-MM-dd HH:mm:ss");
+    }
+
+    public static Date getDateFromFormattedDateStr(String dateStr, String format) {
+        if (dateStr.length() < 10 || !dateStr.contains("-")) {
+            return null;
+        }
+
+        SimpleDateFormat formatter = new SimpleDateFormat(format);
+        Date createdTime = null;
+        try {
+            createdTime = formatter.parse(dateStr);
+        } catch (Exception ignored) {
+        }
+
+        return createdTime;
+    }
+
     public static Date getFormattedDate() {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date createdTime = null;
@@ -32,15 +55,30 @@ public class MyDateUtils {
     }
 
     public static String getCurrentFormattedDate(String format) {
+        return convertDateToFormattedDateStr(new Date(System.currentTimeMillis()), format);
+    }
+
+    public static String convertDateToFormattedDateStr(Date date, String format) {
         try {
             SimpleDateFormat formatter = new SimpleDateFormat(format);
-            Date date = new Date(System.currentTimeMillis());
             return formatter.format(date);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         return "";
+    }
+
+    /**
+     * date 转换为标准时间戳字符串
+     *
+     * @param date
+     * @return
+     */
+    public static String convertDateToFormattedStr(Date date) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        return sdf.format(date);
     }
 
     public static String getCurrentFormattedDateByMilliSecond() {
